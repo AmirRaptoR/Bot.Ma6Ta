@@ -37,7 +37,7 @@ namespace Bot.Ma6Ta.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("646001874:AAFdgjj98uX3hVuQMYtgSoeHOkuJZNu2W9s")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string BotAccessToken {
             get {
                 return ((string)(this["BotAccessToken"]));

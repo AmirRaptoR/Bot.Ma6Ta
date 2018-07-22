@@ -6,7 +6,7 @@
       <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="BotAccessToken" Type="System.String" Scope="User">
-      <Value Profile="(Default)">646001874:AAFdgjj98uX3hVuQMYtgSoeHOkuJZNu2W9s</Value>
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

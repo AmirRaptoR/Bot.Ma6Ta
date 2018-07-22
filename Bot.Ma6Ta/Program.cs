@@ -38,14 +38,7 @@ namespace Bot.Ma6Ta
                     {
                         foreach (var key in _messagesCount.Keys)
                         {
-                            if (_messagesCount[key].MessageCount > Properties.Settings.Default.MessagePerDay)
-                            {
-                                _messagesCount[key].MessageCount = 0;
-                            }
-                            else
-                            {
-                                _messagesCount[key].MessageCount -= Properties.Settings.Default.MessagePerDay;
-                            }
+                            _messagesCount[key].MessageCount = 0;
                         }
                     }
                     Thread.Sleep(60000);
@@ -55,6 +48,7 @@ namespace Bot.Ma6Ta
             {
                 IsBackground = true
             };
+            resetTimer.Start();
         }
 
         private static readonly string DataFile = "data.dat";
@@ -148,8 +142,8 @@ namespace Bot.Ma6Ta
                 if (_messagesCount[e.Message.From.Id].MessageCount >= Properties.Settings.Default.MessagePerDay)
                 {
                     if ((_messagesCount[e.Message.From.Id].MessageCount - Properties.Settings.Default.MessagePerDay) % 5 == 0)
-                        await botClient.SendTextMessageAsync(e.Message.Chat.Id, $"{e.Message.From.FirstName} چقدر حرف می‌زنی. [مریم](tg://user?id=90850705) ناراحت می‌شه. از صبح {_messagesCount[e.Message.From.Id].MessageCount} تا پیام فرستادی",
-                            replyToMessageId: e.Message.MessageId,parseMode:ParseMode.Markdown);
+                        await botClient.SendTextMessageAsync(e.Message.Chat.Id, $"{e.Message.From.FirstName} چقدر حرف می‌زنی. [مریم](tg://user?id=) ناراحت می‌شه. از صبح {_messagesCount[e.Message.From.Id].MessageCount} تا پیام فرستادی",
+                            replyToMessageId: e.Message.MessageId, parseMode: ParseMode.Markdown);
                     Console.WriteLine($"{e.Message.From.Username ?? e.Message.From.FirstName} has spoken beyond his/her limit({_messagesCount[e.Message.From.Id].MessageCount})");
                 }
 
